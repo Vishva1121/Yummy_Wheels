@@ -66,24 +66,34 @@ h2 {
 
 
 }
-  
-  .feature-title {
-    font-size: 1.5rem;
-    text-align: center;
-}
-  
-  .feature-box {
-    padding: 3%;
-    padding-right: 10%;
-    padding-left: 8%;
-    text-align: center;
+
+.container-fluid-features{
+    height: 100%;
 }
 
-.image {
-    height: 25%;
-    padding-right: 25%;
-
+.container-fluid-features .row{
+    height: 80%;
 }
+  
+.feature-title {
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 8%;
+}
+  
+
+.feature-box{
+    height: 100%;
+    text-align: center;
+    padding-top: 3%;
+}
+
+.image-features{
+    height: 60%;
+    /* padding-right: 25%; */
+}
+
 
 .service {
     text-align: center;
@@ -105,6 +115,13 @@ h2 {
     padding-top: 5%;
 }
 
-.feature-box h3{
+.menu-box {
+    padding: 3%;
+    padding-right: 10%;
+    padding-left: 8%;
+    text-align: center;
+}
+
+.menu-box h3{
     margin-left: 28px;
 }
