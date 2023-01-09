@@ -10,47 +10,22 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
 app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
 app.use(session({
   secret: "Our little secret.",
   resave: false,
   saveUninitialized: false
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.connect("mongodb+srv://Vandit3804:gcyxmPAZtxzeEs56@cluster0.p0i6thj.mongodb.net/yummyWheelsDB", { useNewUrlParser: true });
 mongoose.set('strictQuery', true);
-// mongoose.set('useCreateIndex',true);
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    // required: true
-  },
-  fname: {
-    type: String,
-    required: true
-  },
-  lname: {
-    type: String,
-    required: true
-  },
-  phoneNumber: {
-    type: String,
-    required: true
-  }
-});
-
-userSchema.plugin(passportLocalMongoose);
-
-const User = new mongoose.model("User", userSchema);
+const User = require('./models/userModel');
 
 passport.use(User.createStrategy());
 
@@ -89,7 +64,37 @@ app.post("/register", function (req, res) {
       });
     }
   });
+});
 
+app.get("/login",function(req,res){
+  res.render("login");
+});
+
+app.post("/login",function(req,res){
+  const user = new User({
+    username:req.body.username,
+    password:req.body.password
+  });
+
+  req.login(user,function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        passport.authenticate("local")(req, res, function (err,user) {
+            console.log(req);
+            console.log(res);
+            if(!user)
+            {
+              res.redirect("/register");
+            }
+            else
+            {
+              res.redirect("/");
+            }
+        });
+    }
+});
 });
 
 app.listen(3000, function () {
