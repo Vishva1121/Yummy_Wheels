@@ -66,7 +66,6 @@ h2 {
     background-color: white;
     height: 35rem;
 
-
 }
 
 .container-fluid-features{
@@ -75,6 +74,7 @@ h2 {
 
 .container-fluid-features .row{
     height: 80%;
+    margin-right: 0% !important;
 }
   
 .feature-title {
@@ -112,6 +112,10 @@ h2 {
     
 }
 
+.menu-row{
+    margin-right: 0%;
+}
+
 .menu-head {
     text-align: center;
     padding-top: 5%;
@@ -127,3 +131,4 @@ h2 {
 .menu-box h3{
     margin-left: 28px;
 }
+
