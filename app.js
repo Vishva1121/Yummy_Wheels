@@ -40,6 +40,19 @@ passport.deserializeUser(function (id, done) {
   });
 })
 
+
+
+
+// Restaurant-Part
+
+
+
+
+
+
+
+// Customer-Part
+
 app.get("/", function (req, res) {
   if (req.isAuthenticated()) {
     res.render("index");
@@ -80,9 +93,39 @@ app.post("/login",passport.authenticate("local", {
   }
 );
 
+app.get("/logout",function(req,res){
+  req.logout(function(err){
+      if(err){
+          console.log(err);
+      }
+  });
+  res.redirect("/");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3000, function () {
   console.log("Server started on port 3000.");
 });
+
+
+
+
+
 
 
 //password:gcyxmPAZtxzeEs56
