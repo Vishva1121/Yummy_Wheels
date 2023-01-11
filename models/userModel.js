@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
       type: String,
       required: true
-    }
+    },
+    gender:String
   });
   
   userSchema.plugin(passportLocalMongoose);

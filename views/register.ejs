@@ -1,29 +1,50 @@
-<%- include('partials/header') %>
+<!doctype html>
+<html lang="en">
 
-<form action="/register" method="POST">
-  <div class="form-group">
-    <label for="fname">First-Name</label>
-    <input type="text" class="form-control" name="fname">
-  </div>
-  <div class="form-group">
-    <label for="lname">Last-Name</label>
-    <input type="text" class="form-control" name="lname">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" name="username">
-  </div>
-  <div class="form-group">
-    <label for="phoneNumber">Phone-Number</label>
-    <input type="text" class="form-control" name="phoneNumber">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" required>
-  </div>
-  <button type="submit" class="btn btn-dark">Register</button>
-</form>
-  <a class="nav-link active" aria-current="page" href="login">Login</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yummy Wheels</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/30f606dbfb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+</head>
 
-
-<%- include('partials/footer') %>
+<body>
+  <form action="/register" method="POST">
+    <div class="form-group">
+      <label for="fname">First-Name</label>
+      <input type="text" class="form-control" name="fname">
+    </div>
+    <div class="form-group">
+      <label for="lname">Last-Name</label>
+      <input type="text" class="form-control" name="lname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="username">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone-Number</label>
+      <input type="text" class="form-control" name="phoneNumber">
+    </div>
+    <!-- <div class="form-group"> -->
+      <label for="gender">Gender</label>
+      <br>
+      <input type="radio" name="gender" value="male">
+      <label for="gender">Male</label>
+      <input type="radio" name="gender" value="female">
+      <label for="gender">Female</label>
+    <!-- </div> -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-dark">Register</button>
+  </form>
+    <a class="nav-link active" aria-current="page" href="login">Login</a>
+  
+</body>
+</html>

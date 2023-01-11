@@ -53,12 +53,19 @@ passport.deserializeUser(function (id, done) {
 
 // Customer-Part
 
+let userName;
 app.get("/", function (req, res) {
+
   if (req.isAuthenticated()) {
-    res.render("index");
+    User.findOne({username:userName},function(err,user){
+      if(!err)
+      {
+        res.render("index", { genderDetails: "/static/" + user.gender + "-avatar.png" });
+      }
+    });
   }
   else {
-    res.redirect("/register");
+    res.redirect("/login");
   }
 });
 
@@ -67,7 +74,7 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  User.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber }, req.body.password, function (err, user) {
+  User.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
@@ -85,19 +92,20 @@ app.get("/login", function (req, res) {
 });
 
 
-app.post("/login",passport.authenticate("local", {
-    failureRedirect: "/login",
-    // failureFlash: true,
-  }), (req, res) => {
-    res.redirect("/");
-  }
+app.post("/login", passport.authenticate("local", {
+  failureRedirect: "/login",
+  // failureFlash: true,
+}), (req, res) => {
+  res.redirect("/");
+  userName=req.body.username;
+}
 );
 
-app.get("/logout",function(req,res){
-  req.logout(function(err){
-      if(err){
-          console.log(err);
-      }
+app.get("/logout", function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      console.log(err);
+    }
   });
   res.redirect("/");
 });
