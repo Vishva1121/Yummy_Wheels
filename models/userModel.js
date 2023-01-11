@@ -26,6 +26,39 @@ const userSchema = new mongoose.Schema({
   });
   
   userSchema.plugin(passportLocalMongoose);
-  
-  module.exports = new mongoose.model("User", userSchema);
+
+  const userModel =  new mongoose.model("User", userSchema);
+
+ const RestaurantSchema= new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+    },
+    username:{
+        type:String,
+        required:true
+    },
+    phoneNumber:{
+        type:String,
+        required:true
+    },
+    ownerName:{
+        type:String,
+        required:true
+    },
+    category:{
+        type:String,
+        required:true
+    }
+ });
+
+ RestaurantSchema.plugin(passportLocalMongoose);
+ const restaurantModel = new mongoose.model("Restaurant", RestaurantSchema);  
+ module.exports = {
+  user: userModel,
+  restaurant:restaurantModel
+ }
   

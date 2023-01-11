@@ -28,22 +28,42 @@ mongoose.set('strictQuery', true);
 
 const User = require('./models/userModel');
 
-passport.use(User.createStrategy());
+passport.use(User.user.createStrategy());
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
+  User.user.findById(id, function (err, user) {
     done(err, user);
   });
-})
+});
 
 
 
 
 // Restaurant-Part
+
+
+app.get("/registerRestaurant",function(req,res){
+  res.render("registerRestaurant");
+});
+
+app.post("/registerRestaurant", function (req, res) {
+  User.restaurant.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category : req.body.category, menu:{price:3,item:"Panner Tikka"} }, req.body.password, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.redirect("/registerRestaurant");
+    }
+    else {
+      passport.authenticate("local")(req, res, function () {
+        // genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
+        res.redirect("/");
+      });
+    }
+  });
+});
 
 
 
@@ -53,16 +73,12 @@ passport.deserializeUser(function (id, done) {
 
 // Customer-Part
 
-let userName;
+let genderAvatarDetail;
+
 app.get("/", function (req, res) {
 
   if (req.isAuthenticated()) {
-    User.findOne({username:userName},function(err,user){
-      if(!err)
-      {
-        res.render("index", { genderDetails: "/static/" + user.gender + "-avatar.png" });
-      }
-    });
+  res.render("index", { genderDetails: genderAvatarDetail});
   }
   else {
     res.redirect("/login");
@@ -74,13 +90,14 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  User.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
+  User.user.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
     }
     else {
       passport.authenticate("local")(req, res, function () {
+        genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
         res.redirect("/");
       });
     }
@@ -97,7 +114,12 @@ app.post("/login", passport.authenticate("local", {
   // failureFlash: true,
 }), (req, res) => {
   res.redirect("/");
-  userName=req.body.username;
+  User.user.findOne({username:req.body.username},function(err,user){
+    if(!err)
+    {
+      genderAvatarDetail="/static/" + user.gender + "-avatar.png";
+    }
+  });
 }
 );
 
