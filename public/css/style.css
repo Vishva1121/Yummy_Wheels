@@ -154,6 +154,7 @@ footer{
     font-size: 12px;
     line-height: 15px;
 }
+
 .logo{
     width: 40%;
     margin-top: -70px;
@@ -305,4 +306,3 @@ hr{
         flex-basis: 100%;
     }
 }
-
