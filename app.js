@@ -65,6 +65,20 @@ app.post("/registerRestaurant", function (req, res) {
   });
 });
 
+app.get("/loginRestaurant", function (req, res) {
+  res.render("loginRestaurant");
+});
+
+
+app.post("/loginRestaurant", passport.authenticate("local", {
+  failureRedirect: "/loginRestaurant",
+  // failureFlash: true,
+}), (req, res) => {
+  res.redirect("/");
+}
+);
+
+
 
 
 
