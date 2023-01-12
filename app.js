@@ -70,13 +70,13 @@ app.get("/loginRestaurant", function (req, res) {
 });
 
 
-app.post("/loginRestaurant", passport.authenticate("local", {
-  failureRedirect: "/loginRestaurant",
-  // failureFlash: true,
-}), (req, res) => {
-  res.redirect("/");
-}
-);
+// app.post("/loginRestaurant", passport.authenticate("local", {
+//   failureRedirect: "/loginRestaurant",
+//   // failureFlash: true,
+// }), (req, res) => {
+//   res.redirect("/");
+// }
+// );
 
 
 
@@ -92,6 +92,7 @@ let genderAvatarDetail;
 app.get("/", function (req, res) {
 
   if (req.isAuthenticated()) {
+    console.log(req.user.id);
   res.render("index", { genderDetails: genderAvatarDetail});
   }
   else {
