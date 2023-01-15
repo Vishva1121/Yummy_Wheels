@@ -147,7 +147,7 @@ footer{
     width: 100%;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(to right, rgb(255, 255, 109), rgb(255, 197, 91));
+    background: linear-gradient(to right, rgb(255, 255, 109), rgb(244, 173, 40));
     color: black;
     padding: 100px 0 30px;
     border-top-left-radius: 150px;
