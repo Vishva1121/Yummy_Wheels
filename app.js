@@ -46,37 +46,53 @@ passport.deserializeUser(function (id, done) {
 // Restaurant-Part
 
 
-app.get("/registerRestaurant",function(req,res){
-  res.render("registerRestaurant");
-});
+// app.get("/registerRestaurant",function(req,res){
+//   res.render("registerRestaurant");
+// });
 
-app.post("/registerRestaurant", function (req, res) {
-  User.restaurant.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category : req.body.category, menu:{price:3,item:"Panner Tikka"} }, req.body.password, function (err, user) {
-    if (err) {
-      console.log(err);
-      res.redirect("/registerRestaurant");
-    }
-    else {
-      passport.authenticate("local")(req, res, function () {
-        // genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
-        res.redirect("/");
-      });
-    }
-  });
-});
+// app.post("/registerRestaurant", function (req, res) {
+//   User.restaurant.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category : req.body.category, key:1 }, req.body.password, function (err, user) {
+//     if (err) {
+//       console.log(err);
+//       res.redirect("/registerRestaurant");
+//     }
+//     else {
+//       passport.authenticate("local")(req, res, function () {
+//         // genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
+//         res.redirect("/forCheck");
+//       });
+//     }
+//   });
+// });
 
-app.get("/loginRestaurant", function (req, res) {
-  res.render("loginRestaurant");
-});
+// app.get("/forCheck", function (req, res) {
+
+//   if (req.isAuthenticated()) {
+//     console.log(req.restaurant.id);
+//   res.render("index", { genderDetails:"/static/male-avatar.png" });
+//   }
+//   else {
+
+//     res.redirect("/loginRestaurant");
+//   }
+// });
+
+// app.get("/loginRestaurant", function (req, res) {
+//   res.render("loginRestaurant");
+// });
 
 
-app.post("/loginRestaurant", passport.authenticate("local", {
-  failureRedirect: "/loginRestaurant",
-  // failureFlash: true,
-}), (req, res) => {
-  res.redirect("/");
-}
-);
+// // app.post("/loginRestaurant", passport.authenticate("local", {
+// //   failureRedirect: "/loginRestaurant",
+// //   // failureFlash: true,
+// // }), (req, res) => {
+// //   res.redirect("/");
+// // }
+// // );
+
+// app.post("/loginRestaurant",function(req,res){
+//   res.redirect("/forCheck");
+// })
 
 
 
@@ -92,6 +108,7 @@ let genderAvatarDetail;
 app.get("/", function (req, res) {
 
   if (req.isAuthenticated()) {
+  console.log(req.user.id);
   res.render("index", { genderDetails: genderAvatarDetail});
   }
   else {

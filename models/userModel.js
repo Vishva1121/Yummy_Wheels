@@ -52,7 +52,8 @@ const userSchema = new mongoose.Schema({
     category:{
         type:String,
         required:true
-    }
+    },
+    key:Number
  });
 
  RestaurantSchema.plugin(passportLocalMongoose);

@@ -142,7 +142,7 @@ h2 {
     padding-left: 40px;
 }
 
-
+/* 
 footer{
     width: 100%;
     position: absolute;
@@ -305,4 +305,4 @@ hr{
     .col:nth-child(2), .col:nth-child(3){
         flex-basis: 100%;
     }
-}
+} */
