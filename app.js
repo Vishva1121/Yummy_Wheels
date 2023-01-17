@@ -28,14 +28,14 @@ mongoose.set('strictQuery', true);
 
 const User = require('./models/userModel');
 
-passport.use(User.user.createStrategy());
+passport.use(User.createStrategy());
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  User.user.findById(id, function (err, user) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
@@ -46,37 +46,37 @@ passport.deserializeUser(function (id, done) {
 // Restaurant-Part
 
 
-app.get("/registerRestaurant",function(req,res){
-  res.render("registerRestaurant");
-});
+// app.get("/registerRestaurant",function(req,res){
+//   res.render("registerRestaurant");
+// });
 
-app.post("/registerRestaurant", function (req, res) {
-  User.restaurant.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category : req.body.category, menu:{price:3,item:"Panner Tikka"} }, req.body.password, function (err, user) {
-    if (err) {
-      console.log(err);
-      res.redirect("/registerRestaurant");
-    }
-    else {
-      passport.authenticate("local")(req, res, function () {
-        // genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
-        res.redirect("/");
-      });
-    }
-  });
-});
+// app.post("/registerRestaurant", function (req, res) {
+//   User.restaurant.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category : req.body.category, menu:{price:3,item:"Panner Tikka"} }, req.body.password, function (err, user) {
+//     if (err) {
+//       console.log(err);
+//       res.redirect("/registerRestaurant");
+//     }
+//     else {
+//       passport.authenticate("local")(req, res, function () {
+//         // genderAvatarDetail="/static/" + req.body.gender + "-avatar.png";
+//         res.redirect("/");
+//       });
+//     }
+//   });
+// });
 
-app.get("/loginRestaurant", function (req, res) {
-  res.render("loginRestaurant");
-});
+// app.get("/loginRestaurant", function (req, res) {
+//   res.render("loginRestaurant");
+// });
 
 
-app.post("/loginRestaurant", passport.authenticate("local", {
-  failureRedirect: "/loginRestaurant",
-  // failureFlash: true,
-}), (req, res) => {
-  res.redirect("/");
-}
-);
+// app.post("/loginRestaurant", passport.authenticate("local", {
+//   failureRedirect: "/loginRestaurant",
+//   // failureFlash: true,
+// }), (req, res) => {
+//   res.redirect("/");
+// }
+// );
 
 
 
@@ -104,7 +104,7 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  User.user.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
+  User.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
@@ -128,7 +128,7 @@ app.post("/login", passport.authenticate("local", {
   // failureFlash: true,
 }), (req, res) => {
   res.redirect("/");
-  User.user.findOne({username:req.body.username},function(err,user){
+  User.findOne({username:req.body.username},function(err,user){
     if(!err)
     {
       genderAvatarDetail="/static/" + user.gender + "-avatar.png";
