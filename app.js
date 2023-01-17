@@ -28,14 +28,14 @@ mongoose.set('strictQuery', true);
 
 const User = require('./models/userModel');
 
-passport.use(User.user.createStrategy());
+passport.use(User.createStrategy());
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  User.user.findById(id, function (err, user) {
+  User.findById(id, function (err, user) {
     done(err, user);
   });
 });
@@ -121,7 +121,7 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  User.user.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
+  User.register({ username: req.body.username, fname: req.body.fname, lname: req.body.lname, phoneNumber: req.body.phoneNumber, gender: req.body.gender }, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
@@ -145,7 +145,7 @@ app.post("/login", passport.authenticate("local", {
   // failureFlash: true,
 }), (req, res) => {
   res.redirect("/");
-  User.user.findOne({username:req.body.username},function(err,user){
+  User.findOne({username:req.body.username},function(err,user){
     if(!err)
     {
       genderAvatarDetail="/static/" + user.gender + "-avatar.png";
