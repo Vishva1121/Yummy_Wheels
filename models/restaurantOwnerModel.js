@@ -18,14 +18,8 @@ const RestaurantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    ownerName: {
-        type: String,
-        required: true
-    },
-    category: {
-        type: String,
-        required: true
-    }
+    
+    key:Number
 });
 
 RestaurantSchema.plugin(passportLocalMongoose);

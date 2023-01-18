@@ -10,11 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     // required: true
   },
-  fname: {
-    type: String,
-    required: true
-  },
-  lname: {
+  name: {
     type: String,
     required: true
   },
@@ -22,7 +18,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  gender: String
+  ownerName: {
+    type: String,
+},
+category: {
+    type: String
+},
+  gender: String,
+  key:Number
 });
 
 userSchema.plugin(passportLocalMongoose);
