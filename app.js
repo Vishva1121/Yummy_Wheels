@@ -145,6 +145,15 @@ app.post("/login", passport.authenticate("local", {
 }
 );
 
+app.get("/restaurants/:customCategory",function(req,res){
+  // console.log(req.params.customCategory);
+  User.find({category:req.params.customCategory},function(err,restaurants){
+    restaurants.forEach(element => {
+      console.log(element.name);
+    });
+  })
+})
+
 app.get("/logout", function (req, res) {
   req.logout(function (err) {
     if (err) {
