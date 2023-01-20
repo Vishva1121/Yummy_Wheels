@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+
+<h1>
+    <%= restaurantType %>
+</h1>
+
+<% restaurants.forEach(restaurant => { %>
+    <h3><%= restaurant.name%></h3>
+<% }); %>
+
+<%- include('partials/footer') %>
