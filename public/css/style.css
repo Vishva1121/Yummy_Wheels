@@ -60,11 +60,15 @@ h2 {
 
 }
 
-#title .container-fluid .btn{
+.title-btn{
     height: 3rem;
     width: 70%;
     margin: 3% 0%;
     border-radius: 10rem;
+    border: 0;
+    outline: none;
+    font-size: 60%;
+    font-weight: 600;
 } 
 
 #features {
@@ -222,11 +226,11 @@ footer{
     border-bottom: 1px solid black;
     margin-bottom: 50px;
 }
-.footer-form .fas{
+.envelope{
     font-size: 18px;
     margin-right: 10px;
 }
-.footer-form input{
+.email{
     width: 100%;
     background: transparent;
     color: black;
@@ -234,13 +238,13 @@ footer{
     outline: none;
 
 }
-.footer-form button{
+.footer-btn{
     background:transparent;
     outline: none;
     border: 0;
     cursor: pointer;
 }
-.footer-form button .fas{
+.fas{
     font-size: 16px !important;
 }
 .c3{
@@ -314,4 +318,6 @@ hr {
     }
 }
 
+
+/* Register & Login page */
 
