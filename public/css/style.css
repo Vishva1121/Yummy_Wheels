@@ -60,11 +60,15 @@ h2 {
 
 }
 
-#title .container-fluid .btn{
+.title-btn{
     height: 3rem;
     width: 70%;
     margin: 3% 0%;
     border-radius: 10rem;
+    border: 0;
+    outline: none;
+    font-size: 60%;
+    font-weight: 600;
 } 
 
 #features {
@@ -157,7 +161,6 @@ footer{
     width: 40%;
     margin-top: -70px;
 }
-
 .footer-row{
     width: 85%;
      margin: auto;
@@ -299,3 +302,17 @@ hr{
         left: 100%;
     }
 }
+
+/* @media (max-width: 700px){
+    footer{
+        bottom: unset;
+    }
+    .col{
+        flex-basis: 100%;
+    }
+    .col:nth-child(2){
+        flex-basis: 100%;
+    }
+} */
+
+
