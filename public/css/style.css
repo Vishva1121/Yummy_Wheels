@@ -214,7 +214,7 @@ footer{
     color: black;
     padding-top: -30px;
 }
-form{
+.footer-form{
     padding-bottom: 15px;
     display: flex;
     align-items: center;
@@ -222,11 +222,11 @@ form{
     border-bottom: 1px solid black;
     margin-bottom: 50px;
 }
-form .fas{
+.footer-form .fas{
     font-size: 18px;
     margin-right: 10px;
 }
-form input{
+.footer-form input{
     width: 100%;
     background: transparent;
     color: black;
@@ -234,13 +234,13 @@ form input{
     outline: none;
 
 }
-form button{
+.footer-form button{
     background:transparent;
     outline: none;
     border: 0;
     cursor: pointer;
 }
-form button .fas{
+.footer-form button .fas{
     font-size: 16px !important;
 }
 .c3{
