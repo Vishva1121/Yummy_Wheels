@@ -317,18 +317,18 @@ hr{
 
 .form-box{
     width: 380px;
-    height: 480px;
+    height: 500px;
     position: relative;
     margin: 6% auto;
     background-color: white;
-    padding: 5px;
     overflow: hidden;
-    
+    border-radius: 8%;
 }
 
 .button-box{
-    width: 220px;
-    margin: 35px auto;
+    width: 230px;
+    margin: 35px 85px 0px;
+    background-color: white;
     border-radius: 30px;
     position: relative;
     box-shadow: 0 0 20px 9px #ff5f201f;
@@ -392,7 +392,7 @@ hr{
 }
 #register{
     left: 450px;
-    top: 120px;
+    top: 90px;
 }
 
 /* @media (max-width: 700px){

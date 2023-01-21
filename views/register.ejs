@@ -24,7 +24,7 @@
 
       <form action="/login" method="POST" id="login" class="input">
         <div class="form-group">
-          <input type="email" class= "input-field" name="username" placeholder="Email">
+          <input type="email" class="input-field" name="username" placeholder="Email">
         </div>
         <div class="form-group">
           <input type="password" class="input-field" name="password" placeholder="Password" required>
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
 
-          <input type="email" class="input-field" name="username" placeholder="User id" required>
+          <input type="email" class="input-field" name="username" placeholder="Email" required>
         </div>
         <div class="form-group">
 
@@ -65,23 +65,24 @@
   </div>
 
   <script>
-    var x= document.getElementById("login");
-    var y=document.getElementById("register");
-    var z=document.getElementById("btn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
 
-    function register(){
-        x.style.left = "-400px";
-        y.style.left = "50px";
-        z.style.left = "110px";
-
-    }
-    function login(){
-        x.style.left = "50px";
-        y.style.left = "450px";
-        z.style.left = "0";
+    function register() {
+      x.style.left = "-400px";
+      y.style.left = "50px";
+      z.style.left = "110px";
 
     }
-</script>
+
+    function login() {
+      x.style.left = "50px";
+      y.style.left = "450px";
+      z.style.left = "0";
+
+    }
+  </script>
 
 
 </body>

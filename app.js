@@ -101,7 +101,7 @@ app.get("/", function (req, res) {
     res.render("index", { genderDetails: genderAvatarDetail });
   }
   else {
-    res.redirect("/login");
+    res.redirect("/register");
   }
 });
 
@@ -124,18 +124,14 @@ app.post("/register", function (req, res) {
   });
 });
 
-app.get("/login", function (req, res) {
-  res.render("login");
-});
-
 
 app.post("/login", passport.authenticate("local", {
-  failureRedirect: "/login",
+  failureRedirect: "/register",
   // failureFlash: true,
 }), (req, res) => {
   User.findOne({ username: req.body.username }, function (err, user) {
     if (err) {
-      res.redirect("/login");
+      res.redirect("/register");
     }
     else {
       genderAvatarDetail = "/static/" + user.gender + "-avatar.png";
