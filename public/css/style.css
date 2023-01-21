@@ -142,8 +142,7 @@ h2 {
     padding-left: 40px;
 }
 
-
-/*Footer*/
+/* footer */
 
 footer{
     width: 100%;
@@ -158,22 +157,19 @@ footer{
     width: 40%;
     margin-top: -70px;
 }
-.row{
+
+.footer-row{
     width: 85%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: flex-start;
+     margin: auto;
+    justify-content: space-between; 
 }
-.col{
-    flex-basis: 25%;
+.footer-col{
     padding: 10px;
 }
-.col:nth-child(2),:nth-child(3){
+.links{
     flex-basis: 15%;
 }
-.col h3{
+.footer-col h3{
     width: fit-content;
     position: relative;
     margin-bottom: 40px;
@@ -191,6 +187,8 @@ footer{
 .c1 h6{
     margin: 20px -3px;
 }
+
+
 .c2{
     margin-top: -30px;
     list-style: none;
@@ -214,7 +212,7 @@ footer{
     color: black;
     padding-top: -30px;
 }
-form{
+.footer-form{
     padding-bottom: 15px;
     display: flex;
     align-items: center;
@@ -222,11 +220,11 @@ form{
     border-bottom: 1px solid black;
     margin-bottom: 50px;
 }
-form .fas{
+.footer-form .fas{
     font-size: 18px;
     margin-right: 10px;
 }
-form input{
+.footer-form input{
     width: 100%;
     background: transparent;
     color: black;
@@ -234,13 +232,13 @@ form input{
     outline: none;
 
 }
-form button{
+.footer-form button{
     background:transparent;
     outline: none;
     border: 0;
     cursor: pointer;
 }
-form button .fas{
+.footer-form button .fas{
     font-size: 16px !important;
 }
 .c3{
@@ -258,7 +256,7 @@ form button .fas{
     margin-right: 15px;
 }
 
-hr {
+hr{
 
     width: 90%;
     border: 0;
@@ -293,7 +291,7 @@ hr {
     left: 10px;
     animation: moving 2s linear infinite;
 }
-@keyframes moving {
+ @keyframes moving {
     0% {
         left: -20px;
     }
@@ -301,17 +299,3 @@ hr {
         left: 100%;
     }
 }
-
-@media (max-width: 700px){
-    footer{
-        bottom: unset;
-    }
-    .col{
-        flex-basis: 100%;
-    }
-    .col:nth-child(2){
-        flex-basis: 100%;
-    }
-}
-
-
