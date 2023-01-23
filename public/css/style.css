@@ -413,7 +413,7 @@ hr{
 
 .button-box{
     width: 230px;
-    margin: 35px 85px 0px;
+    margin: 40px 85px 0px;
     background-color: white;
     border-radius: 30px;
     position: relative;
@@ -434,7 +434,7 @@ hr{
     top: 0;
     left: 0;
     position: absolute;
-    width: 110px;
+    width: 120px;
     height: 100%;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
@@ -471,6 +471,10 @@ hr{
     outline: none;
     border-radius: 30px;
     
+}
+
+.radio-btn{
+    margin-left: 15px;
 }
 
 #login{
