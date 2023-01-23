@@ -7,7 +7,10 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
-const flash = require('express-flash');
+// const flash = require('express-flash');
+const fs = require('fs');
+const multer = require('multer');
+const path = require('path');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -39,6 +42,19 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
+const Storage = multer.diskStorage({
+  destination:"./public/uploads",
+  filename:(req,file,cb)=>{
+    // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null,file.fieldname + '-' + Date.now()+path.extname(file.originalname));
+  }
+});
+
+const upload = multer({
+  storage:Storage
+});
+
+
 
 
 // Restaurant-Part
@@ -64,6 +80,7 @@ app.post("/registerRestaurant", function (req, res) {
     }
     else {
       passport.authenticate("local")(req, res, function () {
+
         genderAvatarDetail = "/static/male-avatar.png";
         res.redirect("/forCheck");
       });
@@ -80,7 +97,7 @@ app.post("/loginRestaurant", passport.authenticate("local", {
   failureRedirect: "/loginRestaurant",
   // failureFlash: true,
 }), (req, res) => {
-    res.redirect("/forCheck");
+  res.redirect("/forCheck");
 }
 );
 
@@ -93,12 +110,10 @@ app.post("/loginRestaurant", passport.authenticate("local", {
 
 // Customer-Part
 
-let genderAvatarDetail;
-
+let genderAvatarDetail, user_id;
 app.get("/", function (req, res) {
-
   if (req.isAuthenticated() && req.user.key === 0) {
-    res.render("index", { genderDetails: genderAvatarDetail });
+    res.render("index", { genderDetails: genderAvatarDetail});
   }
   else {
     res.redirect("/register");
@@ -109,8 +124,9 @@ app.get("/register", function (req, res) {
   res.render("register");
 });
 
-app.post("/register", function (req, res) {
-  User.register({ username: req.body.username, name: req.body.name, phoneNumber: req.body.phoneNumber, gender: req.body.gender, key: 0 }, req.body.password, function (err, user) {
+app.post("/register", upload.single('file'), function (req, res) {
+  User.register({
+    username: req.body.username, name: req.body.name, phoneNumber: req.body.phoneNumber, gender: req.body.gender, key:0, img: req.file.filename}, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
@@ -141,10 +157,10 @@ app.post("/login", passport.authenticate("local", {
 }
 );
 
-app.get("/restaurants/:customCategory",function(req,res){
+app.get("/restaurants/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
-  User.find({category:req.params.customCategory},function(err,restaurants){
-    res.render("restaurantList",{genderDetails:genderAvatarDetail ,restaurantType:req.params.customCategory, restaurants:restaurants})
+  User.find({ category: req.params.customCategory }, function (err, restaurants) {
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants })
     restaurants.forEach(element => {
       console.log(element.name);
     });
