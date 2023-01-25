@@ -72,8 +72,8 @@ app.get("/registerRestaurant", function (req, res) {
   res.render("registerRestaurant");
 });
 
-app.post("/registerRestaurant", function (req, res) {
-  User.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category: req.body.category, key: 1 }, req.body.password, function (err, user) {
+app.post("/registerRestaurant", upload.single('file'), function (req, res) {
+  User.register({ username: req.body.username, name: req.body.name, ownerName: req.body.oName, phoneNumber: req.body.phoneNumber, category: req.body.category, key: 1, img: req.file.filename}, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/registerRestaurant");
@@ -124,9 +124,9 @@ app.get("/register", function (req, res) {
   res.render("register");
 });
 
-app.post("/register", upload.single('file'), function (req, res) {
+app.post("/register", function (req, res) {
   User.register({
-    username: req.body.username, name: req.body.name, phoneNumber: req.body.phoneNumber, gender: req.body.gender, key:0, img: req.file.filename}, req.body.password, function (err, user) {
+    username: req.body.username, name: req.body.name, phoneNumber: req.body.phoneNumber, gender: req.body.gender, key:0}, req.body.password, function (err, user) {
     if (err) {
       console.log(err);
       res.redirect("/register");
@@ -160,7 +160,7 @@ app.post("/login", passport.authenticate("local", {
 app.get("/restaurants/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
-    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants })
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name })
     restaurants.forEach(element => {
       console.log(element.name);
     });
