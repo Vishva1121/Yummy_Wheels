@@ -61,7 +61,7 @@ const upload = multer({
 
 app.get("/forCheck", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
-    res.render("forCheck", { genderDetails: genderAvatarDetail });
+    res.render("forCheck", { genderDetails: genderAvatarDetail,fullName: req.user.name });
   }
   else {
     res.redirect("/");
@@ -113,7 +113,7 @@ app.post("/loginRestaurant", passport.authenticate("local", {
 let genderAvatarDetail, user_id;
 app.get("/", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 0) {
-    res.render("index", { genderDetails: genderAvatarDetail});
+    res.render("index", { genderDetails: genderAvatarDetail,fullName: req.user.name});
   }
   else {
     res.redirect("/register");
