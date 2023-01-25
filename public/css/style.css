@@ -73,6 +73,8 @@ h2 {
 
 .user-info h3{
     font-weight: 500;
+    font-family: 'Satisfy', cursive;
+    margin-top: 10px;
 }
 
 .user-info img{
@@ -99,13 +101,14 @@ h2 {
 
 .sub-menu-link p{
     width: 100%;
+    margin-top: 12px;
 }
 
 .sub-menu-link .img{
     width: 40px;
     background: #e5e5e5;
     border-radius: 50%;
-    padding: 8px;
+    padding: 12px;
     margin-right: 15px;
 }
 
@@ -126,6 +129,11 @@ h2 {
 
 
 /* #Home */
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
 #title {
     color: black;
     text-align: left;
@@ -209,7 +217,7 @@ h2 {
 }
 
 .menu-row{
-    margin-right: 0%;
+    padding: 20px 260px;
 }
 
 .menu-head {
@@ -218,8 +226,8 @@ h2 {
 }
 
 .menu-box {
-    padding: 3%;
-    padding-right: 10%;
+    padding: 2%;
+    padding-right: 15%;
     padding-left: 8%;
     text-align: center;
 }
