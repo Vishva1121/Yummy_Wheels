@@ -30,6 +30,7 @@ mongoose.connect("mongodb+srv://Vandit3804:gcyxmPAZtxzeEs56@cluster0.p0i6thj.mon
 mongoose.set('strictQuery', true);
 
 const User = require('./models/userModel');
+const Item = require('./models/items');
 passport.use(User.createStrategy());
 
 passport.serializeUser(function (user, done) {
@@ -59,9 +60,9 @@ const upload = multer({
 
 // Restaurant-Part
 
-app.get("/forCheck", function (req, res) {
+app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
-    res.render("forCheck", { genderDetails: genderAvatarDetail,fullName: req.user.name });
+    res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.ownerName });
   }
   else {
     res.redirect("/");
@@ -82,7 +83,7 @@ app.post("/registerRestaurant", upload.single('file'), function (req, res) {
       passport.authenticate("local")(req, res, function () {
 
         genderAvatarDetail = "/static/male-avatar.png";
-        res.redirect("/forCheck");
+        res.redirect("/restaurantHome");
       });
     }
   });
@@ -97,10 +98,14 @@ app.post("/loginRestaurant", passport.authenticate("local", {
   failureRedirect: "/loginRestaurant",
   // failureFlash: true,
 }), (req, res) => {
-  res.redirect("/forCheck");
+  genderAvatarDetail = "/static/male-avatar.png";
+  res.redirect("/restaurantHome");
 }
 );
 
+app.get("/addItem",function(req,res){
+  res.render("addItem",{genderDetails:genderAvatarDetail,fullName:req.user.ownerName})
+});
 
 
 

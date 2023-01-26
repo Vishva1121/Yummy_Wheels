@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<form method="POST" >
+    <div class="form-group">
+        <input type="text" class="input-field" name="name" placeholder="Fullname" required>
+      </div>
+      <div class="form-group">
+
+        <input type="email" class="input-field" name="username" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+
+        <input type="text" class="input-field" name="phoneNumber" placeholder="Phone number" required>
+      </div>
+      <!-- <div class="form-group"> -->
+
+      <br>
+      <input class="radio-btn" type="radio" name="gender" value="male">
+      <label for="gender">Male</label>
+      <input class="radio-btn" type="radio" name="gender" value="female">
+      <label for="gender">Female</label>
+      <!-- </div> -->
+      <div class="form-group">
+
+        <input type="password" class="input-field" name="password" placeholder="Password" required>
+      </div>
+      
+      <button type="submit" class="sub-btn">Register</button>
+</form>
+
+<%- include('partials/footer') %>
