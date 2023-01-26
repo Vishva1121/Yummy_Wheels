@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const itemSchema = new mongoose.Schema({
+    username:String,
+    hotelId:{
+        type:String
+    },
     name:{
         type:String,
         required: true
@@ -12,6 +16,9 @@ const itemSchema = new mongoose.Schema({
     price:{
         type:Number,
         required:true
+    },
+    category:{
+        type:String
     },
     desc:{
         type:String,

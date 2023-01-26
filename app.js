@@ -62,7 +62,9 @@ const upload = multer({
 
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
-    res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.ownerName });
+    Item.find({hotelId:req.user.id},function(err,items){
+      res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.ownerName,items:items });
+    });
   }
   else {
     res.redirect("/");
@@ -103,9 +105,25 @@ app.post("/loginRestaurant", passport.authenticate("local", {
 }
 );
 
-app.get("/addItem",function(req,res){
+app.get("/addItem", function(req,res){
   res.render("addItem",{genderDetails:genderAvatarDetail,fullName:req.user.ownerName})
 });
+
+app.post("/addItem",upload.single('file'),function(req,res){
+  const item1= new Item({
+    username:req.user.username,
+    hotelId:req.user.id,
+    name:req.body.name,
+    quantity:req.body.quantity,
+    price:req.body.price,
+    category:req.body.category,
+    img: req.file.filename
+  });
+  item1.save();
+  res.redirect("/restaurantHome");
+});
+
+
 
 
 
