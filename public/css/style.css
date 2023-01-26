@@ -131,7 +131,7 @@ h2 {
 /* #Home */
 h1{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 50px;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 #title {
@@ -207,7 +207,7 @@ h1{
 }
 
 #Menu {
-    background-color: rgb(232, 103, 103);
+    background-color: white;
 }
 
 .food {
