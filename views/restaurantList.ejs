@@ -1,26 +1,24 @@
 <%- include('partials/header') %>
 
 <h1>
-    <%= restaurantType %>
+  <%= restaurantType %>
 </h1>
+<div class="row restaurant-row">
 
-<% restaurants.forEach(restaurant => { %>
-    <h3><%= restaurant.name%></h3>
-    <img src="/uploads/<%= restaurant.img %>" alt="">
-<% }); %>
-<div class="container1">
-<div class="container">
+  <% restaurants.forEach(restaurant => { %>
+  <div class="col-lg-4">
     <div class="card">
-      <figure class="card__thumb">
-        <img src="https://source.unsplash.com/75S9fpDJVdo/300x510" alt="Picture by Kyle Cottrell" class="card__image">
+      <a href="#" class="card__thumb">
+        <img src="/uploads/<%= restaurant.img %>" alt="" class="card__image">
         <figcaption class="card__caption">
-          <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2>
-          <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other life forms.</p>
-          <a href="" class="card__button">Read more</a>
+          <h2 class="card__title"><%= restaurant.name%></h2>
         </figcaption>
-      </figure>
+      </a>
     </div>
-  
+  </div>
+  <% }); %>
+
+  <div class="col-lg-4">
     <div class="card">
       <figure class="card__thumb">
         <img src="https://source.unsplash.com/71u2fOofI-U/300x510" alt="Picture by Nathan Dumlao" class="card__image">
@@ -31,61 +29,72 @@
         </figcaption>
       </figure>
     </div>
-  
-    <div class="card">
-      <figure class="card__thumb">
-        <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-        <figcaption class="card__caption">
-          <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-          <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-          <a href="" class="card__button">Read more</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="card">
-      <figure class="card__thumb">
-        <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-        <figcaption class="card__caption">
-          <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-          <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-          <a href="" class="card__button">Read more</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="card">
-      <figure class="card__thumb">
-        <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-        <figcaption class="card__caption">
-          <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-          <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-          <a href="" class="card__button">Read more</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="card">
-      <figure class="card__thumb">
-        <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-        <figcaption class="card__caption">
-          <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-          <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-          <a href="" class="card__button">Read more</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <div class="card">
-        <figure class="card__thumb">
-          <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
-          <figcaption class="card__caption">
-            <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
-            <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
-            <a href="" class="card__button">Read more</a>
-          </figcaption>
-        </figure>
-      </div>
   </div>
+
+  <div class="col-lg-4">
+  <div class="card">
+    <figure class="card__thumb">
+      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
+      <figcaption class="card__caption">
+        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
+        <a href="" class="card__button">Read more</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="col-lg-4">
+  <div class="card">
+    <figure class="card__thumb">
+      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
+      <figcaption class="card__caption">
+        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
+        <a href="" class="card__button">Read more</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+  <div class="col-lg-4">
+  <div class="card">
+    <figure class="card__thumb">
+      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
+      <figcaption class="card__caption">
+        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
+        <a href="" class="card__button">Read more</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+
+  <div class="col-lg-4">
+  <div class="card">
+    <figure class="card__thumb">
+      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
+      <figcaption class="card__caption">
+        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
+        <a href="" class="card__button">Read more</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+  <div class="col-lg-4">
+  <div class="card">
+    <figure class="card__thumb">
+      <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
+      <figcaption class="card__caption">
+        <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        <p class="card__snippet">On Friday, offices around the country celebrated the 15th annual Take Your Dog to Work Day. Though the event's primary goal is to raise awareness for pet adoption, the unanticipated impact may be a slightly more relaxing work environment for any office choosing to participate.</p>
+        <a href="" class="card__button">Read more</a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
 </div>
 <%- include('partials/footer') %>
