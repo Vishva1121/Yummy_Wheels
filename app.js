@@ -197,6 +197,14 @@ app.get("/logout", function (req, res) {
 });
 
 
+//Edit Part
+
+app.get("/editProfile",function(req,res){
+  // console.log(req.user);
+  res.render("editProfile",{genderDetails:genderAvatarDetail, fullName:req.user.name,user:req.user}); 
+})
+
+
 
 
 

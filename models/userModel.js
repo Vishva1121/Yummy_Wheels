@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
 category: {
     type: String
 },
+email:String,
   gender: String,
   key:Number,
   img: String
