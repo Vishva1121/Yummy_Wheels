@@ -3,36 +3,35 @@
 <h1>
   <%= restaurantType %>
 </h1>
+<div class="row restaurant-row">
 
-<div class="container1">
-  <div class="container">
-  <!-- <img src="https://source.unsplash.com/75S9fpDJVdo/300x510" alt="Picture by Kyle Cottrell" class="card__image"> -->
-  
   <% restaurants.forEach(restaurant => { %>
+  <div class="col-lg-4">
+    <div class="card">
+      <a href="#" class="card__thumb">
+        <img src="/uploads/<%= restaurant.img %>" alt="" class="card__image">
+        <figcaption class="card__caption">
+          <h2 class="card__title"><%= restaurant.name%></h2>
+        </figcaption>
+      </a>
+    </div>
+  </div>
+  <% }); %>
+
+  <div class="col-lg-4">
     <div class="card">
       <figure class="card__thumb">
-        <img src="/uploads/<%= restaurant.img %>" alt="" class="card_image">
+        <img src="https://source.unsplash.com/71u2fOofI-U/300x510" alt="Picture by Nathan Dumlao" class="card__image">
         <figcaption class="card__caption">
-        <h2 class="card__title"><%= restaurant.name%></h2>
-      </figcaption>
-    </figure>
-  </div>
-        <% }); %>
-        <!-- <h2 class="card__title">NASA Has Found Hundreds Of Potential New Planets</h2> -->
-        <!-- <p class="card__snippet">NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earth’s size and may be habitable by other life forms.</p>
-          <a href="" class="card__button">Read more</a> -->
-
-  <div class="card">
-    <figure class="card__thumb">
-      <img src="https://source.unsplash.com/71u2fOofI-U/300x510" alt="Picture by Nathan Dumlao" class="card__image">
-      <figcaption class="card__caption">
-        <h2 class="card__title">This Is Your Body And Brain On Coffee</h2>
-        <p class="card__snippet">Drinking more caffeine during the coronavirus lockdown? Here's how it can affect you over time and advice on making it better for you.</p>
-        <a href="" class="card__button">Read more</a>
-      </figcaption>
-    </figure>
+          <h2 class="card__title">This Is Your Body And Brain On Coffee</h2>
+          <p class="card__snippet">Drinking more caffeine during the coronavirus lockdown? Here's how it can affect you over time and advice on making it better for you.</p>
+          <a href="" class="card__button">Read more</a>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 
+  <div class="col-lg-4">
   <div class="card">
     <figure class="card__thumb">
       <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
@@ -43,7 +42,9 @@
       </figcaption>
     </figure>
   </div>
+</div>
 
+<div class="col-lg-4">
   <div class="card">
     <figure class="card__thumb">
       <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
@@ -54,7 +55,9 @@
       </figcaption>
     </figure>
   </div>
+</div>
 
+  <div class="col-lg-4">
   <div class="card">
     <figure class="card__thumb">
       <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
@@ -65,7 +68,10 @@
       </figcaption>
     </figure>
   </div>
+</div>
 
+
+  <div class="col-lg-4">
   <div class="card">
     <figure class="card__thumb">
       <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">
@@ -76,7 +82,9 @@
       </figcaption>
     </figure>
   </div>
+</div>
 
+  <div class="col-lg-4">
   <div class="card">
     <figure class="card__thumb">
       <img src="https://source.unsplash.com/qXMpNtNp1uE/300x510" alt="Picture by Daniel Lincoln" class="card__image">

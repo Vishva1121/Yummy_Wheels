@@ -512,30 +512,7 @@ hr{
 
 
 /* cards */
-
-/* html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-  }
-  html *, html *:before, html *:after {
-    box-sizing: inherit;
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #e6e6e6;
-  } */
-
-  .container1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .container {
+  /* .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -543,11 +520,11 @@ hr{
     margin: 20px 80px;
     padding: 0% 10%;
     justify-content: space-between;
-  }
+  } */
   .card {
-    width: 300px;
+    width: 80%;
     height: 300px;
-    margin: 10px;
+    margin: 5% 10% 5% 10%;
     background-color: white;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
   }
@@ -567,7 +544,7 @@ hr{
   }
   .card__thumb {
     position: relative;
-    /* max-height: 400px; */
+    max-height: 400px;
     overflow: hidden;
     margin: 0 !important;
   }
@@ -593,12 +570,14 @@ hr{
   }
   .card__image {
     transition: 0.5s ease-in-out;
+    width: 100%;
+    height: 300px;
   }
   .card__caption {
     position: absolute;
     top: 50%;
     z-index: 1;
-    padding: 0 20px;
+    padding: 0 5%;
     color: white;
     transform: translateY(-50%);
     text-align: center;
