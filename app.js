@@ -184,9 +184,6 @@ app.get("/restaurants/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
     res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name })
-    restaurants.forEach(element => {
-      console.log(element.name);
-    });
   })
 })
 

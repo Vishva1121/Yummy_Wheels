@@ -567,8 +567,9 @@ hr{
   }
   .card__thumb {
     position: relative;
-    max-height: 400px;
+    /* max-height: 400px; */
     overflow: hidden;
+    margin: 0 !important;
   }
   @media (min-width: 1024px) {
     .card__thumb {
