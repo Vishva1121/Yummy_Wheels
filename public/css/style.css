@@ -38,7 +38,7 @@ h2 {
     height: 60px;
 } */
 .user-pic{
-    width: 50px;
+    width: 4%;
     /* height: 50px; */
     border-radius: 50%;
     cursor: pointer;
@@ -126,7 +126,39 @@ h2 {
     font-weight: 600;
 }
 
-
+.search-bar{
+    width: 100%;
+    /* max-width: 500px; */
+    background-color:#fffffe;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+   padding: 5px 10px;
+}
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 15px;
+    color: black,;
+}
+::placeholder{
+    color: black;
+}
+.search-bar button i{
+    padding: 5%;
+    color: white;
+}
+.search-bar button
+{
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #000000;
+    cursor: pointer;
+}
 
 
 /* #Home */
@@ -211,6 +243,7 @@ h3{
 
 #Menu {
     background-color: white;
+    padding-right: 5%;
 }
 
 .food {
