@@ -96,7 +96,7 @@ app.get("/loginRestaurant", function (req, res) {
 
 
 app.post("/loginRestaurant", passport.authenticate("local", {
-  failureRedirect: "/loginRestaurant",
+  failureRedirect: "/registerRestaurant",
   // failureFlash: true,
 }), (req, res) => {
   genderAvatarDetail = "/static/male-avatar.png";
