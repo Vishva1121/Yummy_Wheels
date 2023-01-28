@@ -63,7 +63,7 @@ const upload = multer({
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
     Item.find({hotelId:req.user.id},function(err,items){
-      res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items });
+      res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
     });
   }
   else {
@@ -84,7 +84,6 @@ app.post("/registerRestaurant", upload.single('file'), function (req, res) {
     else {
       passport.authenticate("local")(req, res, function () {
 
-        genderAvatarDetail = "/static/male-avatar.png";
         res.redirect("/restaurantHome");
       });
     }
@@ -106,7 +105,7 @@ app.post("/loginRestaurant", passport.authenticate("local", {
 );
 
 app.get("/addItem", function(req,res){
-  res.render("addItem",{genderDetails:genderAvatarDetail,fullName:req.user.ownerName})
+  res.render("addItem",{genderDetails: "/uploads/"+req.user.img,fullName:req.user.ownerName, homeLink:"/restaurantHome"})
 });
 
 app.post("/addItem",upload.single('file'),function(req,res){
@@ -136,7 +135,7 @@ app.post("/addItem",upload.single('file'),function(req,res){
 let genderAvatarDetail, user_id;
 app.get("/", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 0) {
-    res.render("index", { genderDetails: genderAvatarDetail,fullName: req.user.name});
+    res.render("index", { genderDetails: genderAvatarDetail,fullName: req.user.name, homeLink:"/"});
   }
   else {
     res.redirect("/register");
@@ -183,7 +182,7 @@ app.post("/login", passport.authenticate("local", {
 app.get("/category/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
-    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name })
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
   })
 });
 
@@ -207,7 +206,13 @@ app.get("/logout", function (req, res) {
 //Edit Part
 
 app.get("/editProfile",function(req,res){
-  res.render("editProfile",{genderDetails:genderAvatarDetail, fullName:req.user.name,user:req.user}); 
+  if(req.isAuthenticated() && req.user.key===0){
+    res.render("editProfile",{genderDetails:genderAvatarDetail, fullName:req.user.name,user:req.user, homeLink:"/"}); 
+  }
+  else
+  {
+    res.render("editProfile",{genderDetails:"/uploads/"+req.user.img, fullName:req.user.name,user:req.user, homeLink:"/restaurantHome"});
+  }
 });
 
 app.post("/editProfile",function(req,res){
