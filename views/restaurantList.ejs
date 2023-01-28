@@ -8,7 +8,7 @@
   <% restaurants.forEach(restaurant => { %>
   <div class="col-lg-4">
     <div class="card">
-      <a href="#" class="card__thumb">
+      <a href="/restaurants/<%= restaurant.name %>" class="card__thumb">
         <img src="/uploads/<%= restaurant.img %>" alt="" class="card__image">
         <figcaption class="card__caption">
           <h2 class="card__title"><%= restaurant.name%></h2>
