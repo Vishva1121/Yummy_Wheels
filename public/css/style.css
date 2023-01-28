@@ -173,7 +173,12 @@ h2 {
 .profile-card {
     box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
     background-color: white;
-    padding: 3%;
+}
+.card-header{
+    padding: 3% 3% 0;
+}
+.card-footer{
+    padding: 0 3% 3%;
 }
 .profile-card .profile-card-header {
     font-weight: 500;
@@ -204,7 +209,13 @@ h2 {
     border-radius: 0.35rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.container-xl{
+    max-width: 80%;
+}
+
 /* #Home */
+
 h1{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2.5rem;
@@ -230,6 +241,10 @@ h3{
     width: 110%;
     height: auto;
 
+}
+
+.download-button-1{
+    color: white;
 }
 
 .title-btn{
@@ -520,7 +535,7 @@ hr{
     border: 0;
     outline: none;
     position: relative;
-    
+    color: white;
 }
 #btn{
     top: 0;
@@ -565,6 +580,7 @@ hr{
     margin: 20px 40px;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border:0;
+    color: white;
     outline: none;
     border-radius: 30px;
     
