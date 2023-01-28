@@ -199,7 +199,7 @@ app.get("/logout", function (req, res) {
       console.log(err);
     }
   });
-  res.redirect("/");
+  res.redirect("/registerRestaurant");
 });
 
 
