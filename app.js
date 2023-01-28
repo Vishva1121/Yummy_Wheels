@@ -114,6 +114,7 @@ app.post("/addItem",upload.single('file'),function(req,res){
     hotelId:req.user.id,
     name:req.body.name,
     quantity:req.body.quantity,
+    desc:req.body.desc,
     price:req.body.price,
     category:req.body.category,
     img: req.file.filename
