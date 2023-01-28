@@ -27,6 +27,8 @@ h2 {
 
 .icons {
     padding: 30px 40px;
+    text-decoration: none;
+    color: black;
 }
 
 .logo {
@@ -499,14 +501,19 @@ hr{
 
 .input-field{
     width: 100%;
-    padding: 10px 0;
-    margin: 10px;
+    padding: 5px 0;
+    margin: 7px;
     border-left: 0;
     border-right: 0;
     border-top: 0;
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
+    /* opacity: 0.3; */
+}
+
+.input ::placeholder{
+    opacity: 0.5;
 }
 
 .sub-btn{
@@ -531,8 +538,13 @@ hr{
 }
 #register{
     left: 450px;
-    top: 90px;
+    /* font-size: 70%; */
+    top: 100px;
 }
+.speciality{
+    margin: 0 2%;
+}
+
 
 /* @media (max-width: 700px){
     footer{
