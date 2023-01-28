@@ -244,6 +244,7 @@ h3{
 #Menu {
     background-color: white;
     padding-right: 5%;
+    padding-bottom: 5%;
 }
 
 .food {
@@ -389,6 +390,8 @@ footer{
     font-size: 20px;
     background-color: white;
     margin-right: 15px;
+    text-decoration: none;
+    color: black;
 }
 
 hr{
