@@ -169,16 +169,18 @@ h2 {
 .rounded-circle {
     border-radius: 50% !important;
 }
-.card {
+.profile-card {
     box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    background-color: white;
+    padding: 3%;
 }
-.card .card-header {
+.profile-card .profile-card-header {
     font-weight: 500;
 }
-.card-header:first-child {
+.profile-card-header:first-child {
     border-radius: 0.35rem 0.35rem 0 0;
 }
-.card-header {
+.profile-card-header {
     padding: 1rem 1.35rem;
     margin-bottom: 0;
     background-color: rgba(33, 40, 50, 0.03);
