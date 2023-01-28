@@ -631,7 +631,7 @@ hr{
     }
   }
   .card__thumb::after {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     display: block;
     content: '';
@@ -651,9 +651,9 @@ hr{
     height: 300px;
   }
   .card__caption {
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
-    z-index: 1;
+    /* z-index: 1; */
     padding: 0 5%;
     color: white;
     transform: translateY(-50%);

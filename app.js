@@ -180,12 +180,18 @@ app.post("/login", passport.authenticate("local", {
 }
 );
 
-app.get("/restaurants/:customCategory", function (req, res) {
+app.get("/category/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
     res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name })
   })
-})
+});
+
+
+app.get("/restaurants/:customRestaurant",function(req,res){
+  console.log(req.params.customRestaurant);
+  res.redirect("/");
+});
 
 app.get("/logout", function (req, res) {
   req.logout(function (err) {
