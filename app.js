@@ -63,7 +63,7 @@ const upload = multer({
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
     Item.find({hotelId:req.user.id},function(err,items){
-      res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.ownerName,items:items });
+      res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items });
     });
   }
   else {
@@ -193,6 +193,7 @@ app.get("/restaurants/:customRestaurant",function(req,res){
   res.redirect("/");
 });
 
+
 app.get("/logout", function (req, res) {
   req.logout(function (err) {
     if (err) {
@@ -206,8 +207,16 @@ app.get("/logout", function (req, res) {
 //Edit Part
 
 app.get("/editProfile",function(req,res){
-  // console.log(req.user);
   res.render("editProfile",{genderDetails:genderAvatarDetail, fullName:req.user.name,user:req.user}); 
+});
+
+app.post("/editProfile",function(req,res){
+  User.updateOne({_id:req.user.id},{name:req.body.name,username:req.body.username,phoneNumber:req.body.phoneNumber,birthDate:req.body.birthDate},function(err){
+    if(!err)
+    {
+      res.redirect("/editProfile");
+    }
+  });
 })
 
 

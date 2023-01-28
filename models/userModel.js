@@ -27,7 +27,8 @@ category: {
 email:String,
   gender: String,
   key:Number,
-  img: String
+  img: String,
+  birthDate:Date
 });
 
 userSchema.plugin(passportLocalMongoose);
