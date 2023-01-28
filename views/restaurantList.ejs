@@ -1,10 +1,29 @@
 <%- include('partials/header') %>
 
-<h1 align="center">
+<h1>
   <%= restaurantType %>
 </h1>
-<div class="row restaurant-row">
+  <ul class="cards">
+    <% restaurants.forEach(restaurant => { %>
+    <li>
+      <a href="/restaurants/<%= restaurant.name %>" class="card">
+        <img src="/static/pizza-removebg-preview - Copy.png" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            <img class="card__thumb" src="/uploads/<%= restaurant.img %>" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title"><%= restaurant.name%></h3>
+            </div>
+          </div>
+          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+        </div>
+      </a>      
+    </li>
+    <% }); %>
+    </ul>
 
+<<<<<<< HEAD
   <% restaurants.forEach(restaurant => { %>
   <div class="col-lg-4">
     <div class="card">
@@ -98,3 +117,7 @@
 </div>
 </div>
 <%- include('partials/footer') %> -->
+=======
+<!-- </div> -->
+<%- include('partials/footer') %>
+>>>>>>> a91f5c781d27d29da39751b83cef228c7b668498
