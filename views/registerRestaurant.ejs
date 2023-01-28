@@ -21,7 +21,7 @@
         <button class="toggle-btn" onclick="register()">Register</button>
       </div>
 
-      <form action="/login" method="POST" id="login" class="input">
+      <form action="/loginRestaurant" method="POST" id="login" class="input">
         
         <div class="form-group">
           <input type="email" class="input-field" name="username" placeholder="Email">
@@ -33,7 +33,7 @@
       </form>
 
 
-      <form class="input" id="register" action="/register" method="POST">
+      <form class="input" id="register" action="/registerRestaurant" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <input type="text" class="input-field" name="name" placeholder="Restaurant Name">
         </div>
@@ -70,6 +70,10 @@
             <option value="gujarati">gujarati</option>
             <option value="north-indian">North-Indian</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <input type="file" name="file">
         </div>
         
         <button type="submit" class="sub-btn">Register</button>
