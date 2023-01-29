@@ -56,6 +56,7 @@ h2 {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 1;
 }
 
 .sub-menu-wrap.open-menu{
@@ -538,6 +539,10 @@ hr{
     border: 0;
     outline: none;
     position: relative;
+    color: black;
+}
+
+.toggle-btn button:checked{
     color: white;
 }
 #btn{
@@ -703,7 +708,7 @@ hr{
   }
 
   .card__title {
-    font-size: 1em;
+    font-size: 1.5rem;
     margin: 0 0 .3em;
     color: black;
   }
