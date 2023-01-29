@@ -1,9 +1,9 @@
 <%- include('partials/header') %>
 <div class="main-container">
-<div class="list-container">
-  <div class="list-title">Add Item</div>
-  <div class="content">
-    <form method="POST" action="/addItem" enctype="multipart/form-data" class="add-form"></form>
+  <div class="list-container">
+    <div class="list-title">Add Item</div>
+    <div class="content">
+      <form method="POST" action="/addItem" enctype="multipart/form-data" class="add-form">
       <div class="user-details">
         <div class="input-box">
           <span class="details">Item Name</span>
@@ -23,20 +23,21 @@
         </div>
       </div>
 
-      <input type="radio" name="category"  value="veg">
+      <input type="radio" name="category" value="veg">
       <label for="Veg">Veg</label>
-      <input type="radio" name="category"  value="nonVeg">
+      <input type="radio" name="category" value="nonVeg">
       <label for="Non-Veg">Non-veg</label>
 
       <div class="input-file">
-          <input type="file" name="file">
+        <input type="file" name="file">
       </div>
       <div class="add-button">
+        <!-- <button type="submit">Add</button> -->
         <input type="submit" value="Add Item">
       </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 </div>
 
 
