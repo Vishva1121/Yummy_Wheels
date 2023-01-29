@@ -5,7 +5,7 @@
   
       <div class="section-title">
         <a href="#">
-          <h1><%= fullName %></h1>
+          <h1><%= name %></h1>
         </a>
         <h5>Pizza, Fast Food</h5>
       </div>
@@ -21,9 +21,9 @@
           <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
           <button class="add">Add</button>
           <div class="menu-content">
-            <a href="#">
+            <!-- <a href="#"> -->
               <h5><%= item.name%></h5>
-            </a>
+            <!-- </a> -->
           </div>
           <div class="menu-ingredients">
             <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
@@ -37,7 +37,6 @@
         </div>
         <% }); %>
       </div>
-    </div>
   </section>
 
   
