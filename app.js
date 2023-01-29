@@ -71,7 +71,7 @@ app.get("/restaurantHome", function (req, res) {
     });
   }
   else {
-    res.redirect("/");
+    res.redirect("/registerRestaurant");
   }
 });
 
@@ -199,7 +199,7 @@ app.get("/category/:customCategory", function (req, res) {
 app.get("/restaurants/:customRestaurant",function(req,res){
   Item.find({username:req.params.customRestaurant},function(err,items){
     if(!err){
-      res.render("amtha", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, homeLink:"/"});
+      res.render("restaurantMenu", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, name:req.params.customRestaurant, homeLink:"/"});
     }
   })
 });
