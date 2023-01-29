@@ -11,6 +11,9 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
+const _ = require('lodash');
+
+
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -31,6 +34,7 @@ mongoose.set('strictQuery', true);
 
 const User = require('./models/userModel');
 const Item = require('./models/items');
+const items = require("./models/items");
 passport.use(User.createStrategy());
 
 passport.serializeUser(function (user, done) {
@@ -62,12 +66,12 @@ const upload = multer({
 
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
-    Item.find({hotelId:req.user.id},function(err,items){
+    Item.find({username:req.user.username},function(err,items){
       res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
     });
   }
   else {
-    res.redirect("/");
+    res.redirect("/registerRestaurant");
   }
 });
 
@@ -96,7 +100,7 @@ app.get("/loginRestaurant", function (req, res) {
 
 
 app.post("/loginRestaurant", passport.authenticate("local", {
-  failureRedirect: "/loginRestaurant",
+  failureRedirect: "/registerRestaurant",
   // failureFlash: true,
 }), (req, res) => {
   genderAvatarDetail = "/static/male-avatar.png";
@@ -110,10 +114,11 @@ app.get("/addItem", function(req,res){
 
 app.post("/addItem",upload.single('file'),function(req,res){
   const item1= new Item({
-    username:req.user.username,
-    hotelId:req.user.id,
+    username:req.user.name,
+    // hotelId:req.user.id,
     name:req.body.name,
     quantity:req.body.quantity,
+    desc:req.body.desc,
     price:req.body.price,
     category:req.body.category,
     img: req.file.filename
@@ -182,14 +187,21 @@ app.post("/login", passport.authenticate("local", {
 app.get("/category/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
-    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType:  _.capitalize(req.params.customCategory), restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
   })
 });
 
+// app.get("/amtha",function(req,res){
+//   res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
+// })
+
 
 app.get("/restaurants/:customRestaurant",function(req,res){
-  console.log(req.params.customRestaurant);
-  res.redirect("/");
+  Item.find({username:req.params.customRestaurant},function(err,items){
+    if(!err){
+      res.render("restaurantMenu", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, name:req.params.customRestaurant, homeLink:"/"});
+    }
+  })
 });
 
 

@@ -1,23 +1,46 @@
 <%- include('partials/header') %>
+<div class="main-container">
+  <div class="list-container">
+    <div class="list-title">Add Item</div>
+    <div class="content">
+      <form method="POST" action="/addItem" enctype="multipart/form-data" class="add-form">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Item Name</span>
+          <input type="text" placeholder="Item Name" name="name" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Description</span>
+          <input type="text" placeholder="Description" name="desc" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Quantity</span>
+          <input type="text" placeholder="Enter the quantity" name="quantity" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Price</span>
+          <input type="text" placeholder="Enter the price" name="price" required>
+        </div>
+      </div>
 
-<form method="POST" action="/addItem" enctype="multipart/form-data">
-    <div class="form-group">
-        <input type="text" class="input-field" name="name" placeholder="Item Name" required>
-      </div>
-      <div class="form-group">
-        <input type="text" class="input-field" name="quantity" placeholder="Quantity" required>
-      </div>
-      <div class="form-group">
-        <input type="text" class="input-field" name="price" placeholder="Price" required>
-      </div>
+      <input type="radio" name="category" value="veg">
+      <label for="Veg">Veg</label>
+      <input type="radio" name="category" value="nonVeg">
+      <label for="Non-Veg">Non-veg</label>
 
-      <br>
-      <input class="radio-btn" type="radio" name="category" value="veg">
-      <label for="gender">Veg</label>
-      <input class="radio-btn" type="radio" name="category" value="nonVeg">
-      <label for="gender">Non-Veg</label>
-      <input type="file" name="file">
-      <button type="submit" class="sub-btn">Add</button>
-</form>
+      <div class="input-file">
+        <input type="file" name="file">
+      </div>
+      <div class="add-button">
+        <!-- <button type="submit">Add</button> -->
+        <input type="submit" value="Add Item">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
 
 <%- include('partials/footer') %>
