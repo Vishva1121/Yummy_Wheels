@@ -7,7 +7,7 @@
     <% restaurants.forEach(restaurant => { %>
     <li>
       <a href="/restaurants/<%= restaurant.name %>" class="card">
-        <img src="/static/pizza-removebg-preview - Copy.png" class="card__image" alt="" />
+        <img src="/static/<%= restaurantType%>.png" class="card__image" alt="" />
         <div class="card__overlay">
           <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
@@ -22,5 +22,5 @@
     </li>
     <% }); %>
     </ul>
-<!-- </div> -->
+    <!-- </div> -->
 <%- include('partials/footer') %>
