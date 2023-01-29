@@ -23,5 +23,21 @@
     <% }); %>
     </ul>
 
+<<<<<<< HEAD
+  <% restaurants.forEach(restaurant => { %>
+  <div class="col-lg-4">
+    <div class="card">
+      <a href="/restaurants/<%= restaurant.name %>" class="card__thumb">
+        <img src="/uploads/<%= restaurant.img %>" alt="" class="card__image">
+        <figcaption class="card__caption">
+          <h2 class="card__title"><%= restaurant.name%></h2>
+        </figcaption>
+      </a>
+    </div>
+  </div>
+  <% }); %>
+
+
+=======
 <!-- </div> -->
 <%- include('partials/footer') %>
