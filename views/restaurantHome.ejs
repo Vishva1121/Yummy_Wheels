@@ -1,56 +1,42 @@
 <%- include('partials/header') %>
-<!-- 
 <section id="menu" class="menu section-bg">
-    <div class="menu-upper-container" data-aos="fade-up">
-  
-      <div class="section-title">
+  <div class="menu-upper-container" data-aos="fade-up">
+
+    <div class="section-title">
+      <a href="#">
+        <h1><%= fullName %></h1>
+      </a>
+      <h5>Pizza, Fast Food</h5>
+    </div>
+    <hr>
+
+    <div class="menu-title">
+      <p>Menu</p>
+    </div>
+    <hr>
+    <% items.forEach(item => { %>
+    <!-- <div class="row menu-container" data-aos="fade-up" data-aos-delay="200"> -->
+    <div class="col-lg-12 menu-item filter-starters">
+      <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
+      <button class="add">Add</button>
+      <div class="menu-content">
         <a href="#">
-          <h1><%= name %></h1>
+          <h5><%= item.name%></h5>
         </a>
-        <h5>Pizza, Fast Food</h5>
       </div>
-      <hr>
-  
-      <div class="menu-title">
-        <p>Menu</p>
-      </div>
-      <hr>
-      <% items.forEach(item => { %>
-      <!-- <div class="row menu-container" data-aos="fade-up" data-aos-delay="200"> -->
-        <div class="col-lg-12 menu-item filter-starters">
-          <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
-          <button class="add">Add</button>
-          <div class="menu-content">
-            <a href="#">
-              <h5><%= item.name%></h5>
-            </a>
-          </div>
-          <div class="menu-ingredients">
-            <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
-            <% if(item.category==="veg"){ %>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Veg_symbol.svg/1200px-Veg_symbol.svg.png" class="veg" alt="">
-            <% } else { %>
-              <img src="https://www.shutterstock.com/image-vector/non-veg-illustration-vector-icon-260nw-1762664813.jpg" class="veg" alt="">
-             <% } %>
-            <h3 class="menu-price">₹<%= item.price%></h3>
-          </div>
-        </div>
-        <% }); %>
+      <div class="menu-ingredients">
+        <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
+        <% if(item.category==="veg"){ %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Veg_symbol.svg/1200px-Veg_symbol.svg.png" class="veg" alt="">
+        <% } else { %>
+        <img src="https://www.shutterstock.com/image-vector/non-veg-illustration-vector-icon-260nw-1762664813.jpg" class="veg" alt="">
+        <% } %>
+        <h3 class="menu-price">₹<%= item.price%></h3>
       </div>
     </div>
-  </section>
-   -->
-  
-  
-
-
-<% items.forEach(item => { %>
-    <h3><%= item.name%></h3>
-    <h5><%= item.price%></h5>
-    <img src="/uploads/<%= item.img %>" alt="">
-<% }); %>
-
-
+    <% }); %>
+  </div>
+</section>
 <a href="/addItem" class="add-button">Add Item</a>
 
 <%- include('partials/footer') %>

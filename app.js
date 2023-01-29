@@ -66,9 +66,9 @@ const upload = multer({
 
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
-    // Item.find({usernname:req.user.name},function(err,items){
-      res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name, homeLink:"/restaurantHome"});
-    // });
+    Item.find({username:req.user.name},function(err,items){
+      res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
+    });
   }
   else {
     res.redirect("/registerRestaurant");
