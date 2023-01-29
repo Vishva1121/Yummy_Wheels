@@ -535,6 +535,10 @@ hr{
     border: 0;
     outline: none;
     position: relative;
+    color: black;
+}
+
+.toggle-btn button:checked{
     color: white;
 }
 #btn{
