@@ -1056,3 +1056,15 @@ hr{
     padding: 1%;
     border-radius: 10px;
   }
+  
+  .add-item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+
+  }
+
+  .add-item:hover{
+  }
