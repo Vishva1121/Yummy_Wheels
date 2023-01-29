@@ -59,7 +59,7 @@ const upload = multer({
   storage:Storage
 });
 
-
+cart=[];
 
 
 // Restaurant-Part
@@ -67,7 +67,7 @@ const upload = multer({
 app.get("/restaurantHome", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 1) {
     Item.find({username:req.user.name},function(err,items){
-      res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
+      res.render("restaurantHome", { genderDetails: "/uploads/"+req.user.img,fullName: req.user.name,items:items, homeLink:"/restaurantHome",cartQuantity:0});
     });
   }
   else {
@@ -109,7 +109,7 @@ app.post("/loginRestaurant", passport.authenticate("local", {
 );
 
 app.get("/addItem", function(req,res){
-  res.render("addItem",{genderDetails: "/uploads/"+req.user.img,fullName:req.user.ownerName, homeLink:"/restaurantHome"})
+  res.render("addItem",{genderDetails: "/uploads/"+req.user.img,fullName:req.user.ownerName, homeLink:"/restaurantHome",cartQuantity:0})
 });
 
 app.post("/addItem",upload.single('file'),function(req,res){
@@ -140,7 +140,7 @@ app.post("/addItem",upload.single('file'),function(req,res){
 let genderAvatarDetail, user_id;
 app.get("/", function (req, res) {
   if (req.isAuthenticated() && req.user.key === 0) {
-    res.render("index", { genderDetails: genderAvatarDetail,fullName: req.user.name, homeLink:"/"});
+    res.render("index", { genderDetails: genderAvatarDetail,fullName: req.user.name, homeLink:"/",cartQuantity:cart.length});
   }
   else {
     res.redirect("/register");
@@ -187,7 +187,7 @@ app.post("/login", passport.authenticate("local", {
 app.get("/category/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
-    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType:  _.capitalize(req.params.customCategory), restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType:  _.capitalize(req.params.customCategory), restaurants: restaurants, fullName:req.user.name, homeLink:"/",cartQuantity:cart.length})
   })
 });
 
@@ -195,14 +195,38 @@ app.get("/category/:customCategory", function (req, res) {
 //   res.render("restaurantHome", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, homeLink:"/restaurantHome"});
 // })
 
-
+var restaurant;
 app.get("/restaurants/:customRestaurant",function(req,res){
+  restaurant=req.params.customRestaurant;
   Item.find({username:req.params.customRestaurant},function(err,items){
     if(!err){
-      res.render("restaurantMenu", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, name:req.params.customRestaurant, homeLink:"/"});
+      res.render("restaurantMenu", { genderDetails: genderAvatarDetail,fullName: req.user.name,items:items, name:req.params.customRestaurant, homeLink:"/",cartQuantity:cart.length});
     }
   })
 });
+
+app.post("/addToCart",function(req,res){
+  var flag=false;
+  cart.forEach(cart=>{
+    if(cart.id===req.body.button)
+    {
+      flag=true;
+      cart.count+=1;
+    }
+  });
+  if(flag===false)
+  {
+    Item.findOne({_id:req.body.button},function(err,item){
+      console.log(item);
+      cart.push({id:req.body.button,count:1,img:item.img,price:item.price,quantity:item.quantity,name:item.name});
+    });
+    res.redirect("/restaurants/"+restaurant);
+  }
+});
+
+app.get("/cart",function(req,res){
+  res.render("cart",{items:cart,homeLink:"/"});
+})
 
 
 app.get("/logout", function (req, res) {

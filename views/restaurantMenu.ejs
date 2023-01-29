@@ -1,4 +1,5 @@
-<%- include('partials/header') %><section id="menu" class="menu section-bg">
+<%- include('partials/header') %>
+<section id="menu" class="menu section-bg">
   <div class="menu-upper-container" data-aos="fade-up">
 
     <div class="section-title">
@@ -17,7 +18,9 @@
     <!-- <div class="row menu-container" data-aos="fade-up" data-aos-delay="200"> -->
     <div class="col-lg-12 menu-item filter-starters">
       <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
-      <button class="add">Add</button>
+      <form action="/addToCart" method="POST">
+      <button class="add" value="<%= item._id %>" name="button" onchange="this.form.submit()">Add</button>
+    </form>
       <div class="menu-content">
         <!-- <a href="#"> -->
           <h5><%= item.name%></h5>
