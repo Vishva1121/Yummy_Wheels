@@ -1,11 +1,11 @@
 <%- include('partials/header') %>
-<!-- 
+
 <section id="menu" class="menu section-bg">
     <div class="menu-upper-container" data-aos="fade-up">
   
       <div class="section-title">
         <a href="#">
-          <h1><%= name %></h1>
+          <h1><%= fullName %></h1>
         </a>
         <h5>Pizza, Fast Food</h5>
       </div>
@@ -39,18 +39,10 @@
       </div>
     </div>
   </section>
-   -->
+
   
   
 
-
-<% items.forEach(item => { %>
-    <h3><%= item.name%></h3>
-    <h5><%= item.price%></h5>
-    <img src="/uploads/<%= item.img %>" alt="">
-<% }); %>
-
-
-<a href="/addItem" class="add-button">Add Item</a>
+<button><a href="/addItem" class="add-button">Add Item</a></button>
 
 <%- include('partials/footer') %>
