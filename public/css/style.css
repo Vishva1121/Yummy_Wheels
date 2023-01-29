@@ -599,7 +599,7 @@ hr{
 #register{
     left: 450px;
     /* font-size: 70%; */
-    top: 100px;
+    top: 100px;    
 }
 .speciality{
     margin: 0 2%;
@@ -685,6 +685,7 @@ hr{
     z-index: 1;
   }
 
+  
   .card__arc path {
     fill: var(--surface-color);
     /* d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z"); */
@@ -730,6 +731,16 @@ hr{
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
+
+  .rest-type{
+    text-align: center;
+    width: 100%;
+    padding-top: 5%;
+    font-size: 4rem;
+    font-family: 'Merriweather', serif;
+
+  }
+
   
   /* *{
   margin: 0;
@@ -887,3 +898,5 @@ hr{
       flex-direction: column;
     }
   }
+
+  

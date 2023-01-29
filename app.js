@@ -11,6 +11,9 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const fs = require('fs');
 const multer = require('multer');
 const path = require('path');
+const _ = require('lodash');
+
+
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -183,7 +186,7 @@ app.post("/login", passport.authenticate("local", {
 app.get("/category/:customCategory", function (req, res) {
   // console.log(req.params.customCategory);
   User.find({ category: req.params.customCategory }, function (err, restaurants) {
-    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType: req.params.customCategory, restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
+    res.render("restaurantList", { genderDetails: genderAvatarDetail, restaurantType:  _.capitalize(req.params.customCategory), restaurants: restaurants, fullName:req.user.name, homeLink:"/"})
   })
 });
 
