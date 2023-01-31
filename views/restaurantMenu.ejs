@@ -16,31 +16,29 @@
     <hr>
     <% items.forEach(item => { %>
     <!-- <div class="row menu-container" data-aos="fade-up" data-aos-delay="200"> -->
-      <div class="col-lg-12 menu-item filter-starters">
-        <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
-        <button class="add">Add</button>
-        <div class="menu-content">
-          <a href="#">
-            <h5><%= item.name%></h5>
-          </a>
-        </div>
-        <div class="menu-ingredients">
-          <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
-          <% if(item.category==="veg"){ %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Veg_symbol.svg/1200px-Veg_symbol.svg.png" class="veg" alt="">
-          <% } else { %>
-            <img src="https://www.shutterstock.com/image-vector/non-veg-illustration-vector-icon-260nw-1762664813.jpg" class="veg" alt="">
-           <% } %>
-          <h3 class="menu-price">₹<%= item.price%></h3>
-        </div>
+    <div class="col-lg-12 menu-item filter-starters">
+      <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
+      <form action="/addToCart" method="POST">
+      <button class="add" value="<%= item._id %>" name="button" onchange="this.form.submit()">Add</button>
+    </form>
+      <div class="menu-content">
+        <!-- <a href="#"> -->
+          <h5><%= item.name%></h5>
+        <!-- </a> -->
       </div>
-      <% }); %>
+      <div class="menu-ingredients">
+        <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
+        <% if(item.category==="veg"){ %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Veg_symbol.svg/1200px-Veg_symbol.svg.png" class="veg" alt="">
+        <% } else { %>
+        <img src="https://www.shutterstock.com/image-vector/non-veg-illustration-vector-icon-260nw-1762664813.jpg" class="veg" alt="">
+        <% } %>
+        <h3 class="menu-price">₹<%= item.price%></h3>
+      </div>
     </div>
+    <% }); %>
   </div>
 </section>
-
-
-
 
 
 <!-- 
