@@ -35,10 +35,10 @@ h2 {
     width: 8%;
 }
 
-/* .profile-icon{
+.profile-icon{
     width: 60px;
     height: 60px;
-} */
+}
 .user-pic{
     width: 4%;
     /* height: 50px; */
@@ -1012,15 +1012,18 @@ hr{
     bottom: -6rem;
     width: 9%;
     border-radius: 10px;
+    border: solid 0.5px black;
     color: green;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
   
   .menu button:hover{
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    border: none;
     background-color: rgb(10, 160, 10);
     color: white;
+
   }
   .menu-ingredients p{
     margin-left: 21.55%;
