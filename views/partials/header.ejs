@@ -44,13 +44,19 @@
         <div class="search-input">
           <form action="" class="search-bar">
             <input type="search" placeholder="Search">
-            <button type="submit">
+            <button type="submit" style="margin-right: 2%;">
             <i class="fa-solid fa-magnifying-glass icons"></i>
             </button>
           </form>
         </div>
         
-        <a href=""><i class="fa-solid fa-cart-shopping icons fa-lg"></i></a>
+        <a href="/cart">
+          <i class="fa" style="font-size:24px; color:black;">&#xf07a;</i>
+          <!-- <i class="fa-solid fa-cart-shopping icons fa-lg"></i> -->
+          <% if(cartQuantity>0) { %>
+          <span class='badge badge-warning' id='lblCartCount'> <%= cartQuantity %> </span>
+        <% } %>
+        </a>
         <!-- <i class="fa-solid fa-user icons fa-lg"></i> -->
         <img src=<%= genderDetails %> alt="" class="user-pic" onClick="toggleMenu()">
 
@@ -70,8 +76,8 @@
                     </a>
                     
                     <a href="#" class="sub-menu-link">
-                        <i class="fa-solid fa-gear img"></i>
-                        <p>Setting</p>
+                      <i class="fa-solid fa-bars img"></i>
+                        <p>My orders</p>
                         <span><i class="fa-sharp fa-solid fa-chevron-right fa-2xs"></i></span>
                     </a>
                     

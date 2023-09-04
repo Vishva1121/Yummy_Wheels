@@ -31,6 +31,27 @@ h2 {
     color: black;
 }
 
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 12px;
+      background: #ff0000;
+      color: #fff;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -10px; 
+  }
+
 .logo {
     width: 8%;
 }
@@ -952,12 +973,12 @@ hr{
     margin-left: 22%; 
     margin-bottom: 2%;
     border: solid 1px rgba(0, 0, 0, 0.038);
-    padding: 3%;
+    padding:2% 3% 4%;
     width: 55%;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     transition: 0.2s ease-in-out;
-    background-color: #fbd4be;
+    background-color: white;
   }
 
   .menu .veg{
@@ -972,6 +993,7 @@ hr{
     width: 150px;
     border-radius: 10px;
     float: left;
+    margin-right: 2%;
   }
   
   .menu .menu-content {
@@ -992,7 +1014,7 @@ hr{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   }
   
-  .menu .menu-content a {
+  .menu .menu-content h5 {
     margin-left: 2%;
     padding-right: 10px;
     position: relative;
@@ -1025,6 +1047,11 @@ hr{
     color: white;
 
   }
+
+  .menu-ingredients{
+    padding-left: 5%;
+  }
+
   .menu-ingredients p{
     margin-left: 21.55%;
     /* margin-top: -2rem; */
@@ -1058,4 +1085,16 @@ hr{
     color: yellow;
     padding: 1%;
     border-radius: 10px;
+  }
+  
+  .add-item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+
+  }
+
+  .add-item:hover{
   }

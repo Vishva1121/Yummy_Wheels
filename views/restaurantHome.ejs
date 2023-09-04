@@ -1,5 +1,13 @@
 <%- include('partials/header') %>
-<!-- 
+
+<<<<<<< HEAD
+  
+
+
+
+
+<a href="/addItem" class="add-button">Add Item</a>
+=======
 <section id="menu" class="menu section-bg">
     <div class="menu-upper-container" data-aos="fade-up">
   
@@ -21,9 +29,9 @@
           <img src="/uploads/<%= item.img %>" class="menu-img" alt="">
           <button class="add">Add</button>
           <div class="menu-content">
-            <a href="#">
+            <!-- <a href="#"> -->
               <h5><%= item.name%></h5>
-            </a>
+            <!-- </a> -->
           </div>
           <div class="menu-ingredients">
             <p>The Freshness Of Capsicum, Tomatoes, With The Flavour Of Paneer And Red Paprika</p>
@@ -37,20 +45,12 @@
         </div>
         <% }); %>
       </div>
-    </div>
   </section>
-   -->
+
   
   
 
-
-<% items.forEach(item => { %>
-    <h3><%= item.name%></h3>
-    <h5><%= item.price%></h5>
-    <img src="/uploads/<%= item.img %>" alt="">
-<% }); %>
-
-
-<a href="/addItem" class="add-button">Add Item</a>
+<button><a href="/addItem" class="add-item">Add Item</a></button>
+>>>>>>> 7b7f7f53aafd76aa7783405df69d3c023ab6c7d6
 
 <%- include('partials/footer') %>
